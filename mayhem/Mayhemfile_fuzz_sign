@@ -1,0 +1,10 @@
+# osslsigncode: sign target (in-process harness mayhem/fuzz_osslsigncode.c, FUZZ_MODE for "sign").
+project: savantenvs/osslsigncode
+target: fuzz_sign
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_sign/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_sign
+    libfuzzer: true
+    timeout: 30

@@ -1,0 +1,10 @@
+# osslsigncode: extract target (in-process harness mayhem/fuzz_osslsigncode.c, FUZZ_MODE for "extract").
+project: savantenvs/osslsigncode
+target: fuzz_extract
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_extract/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_extract
+    libfuzzer: true
+    timeout: 30
